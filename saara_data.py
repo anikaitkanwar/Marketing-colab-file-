@@ -465,3 +465,35 @@ worksheet.format("A:M", {
     }
     )
 
+    def run_pipeline(
+    report_date_input: str,
+    delay: int,
+    user: str,
+    spreadsheet_url: str
+):
+    global report_date
+    global start_date
+    global User
+    global spreadSheet_URL
+
+    User = user
+    spreadSheet_URL = spreadsheet_url
+
+    from datetime import datetime, timedelta
+    from pytz import timezone
+
+    report_date = datetime.strptime(report_date_input, "%Y-%m-%d")
+    start_date = (report_date - timedelta(days=delay)).strftime("%Y-%m-%d 18:30:00")
+
+    ind_time = datetime.now(timezone("Asia/Kolkata")).strftime('%Y-%m-%d %H:%M:%S.%f')
+    print('last used by', User, 'at', ind_time)
+
+    # ---- CALL YOUR EXISTING LOGIC HERE ----
+    # Example:
+    # query = generate_query(start_date, report_date_input, report_date_input)
+    # fetch data
+    # write to google sheet
+
+    print("Pipeline completed successfully")
+
+
