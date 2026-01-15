@@ -32,7 +32,7 @@ if st.sidebar.button("🚀 Run Pipeline"):
         result = run_pipeline(
             report_date_input=str(report_date),
             delay=int(delay),
-            user_name=user_name,
+            user_name=user,
             spreadsheet_url=spreadsheet_url,
             category=category,
             worksheet_name=worksheet_name,
