@@ -198,17 +198,21 @@ def upload_chunked_dataframe(df, worksheet, chunk_size=1000):
 def run_pipeline(
     report_date_input: str,
     delay: int,
-    user_name: str,
-    spreadsheet_url: str,
-    category: str,
-    worksheet_name: str,
-    host: str,
-    database: str,
-    db_user: str,
-    password: str,
-    port: str,
-    json_key: dict
+    user_name: str = None,
+    user: str = None,
+    spreadsheet_url: str = "",
+    category: str = "",
+    worksheet_name: str = "",
+    host: str = "",
+    database: str = "",
+    db_user: str = "",
+    password: str = "",
+    port: str = "",
+    json_key: dict = None
 ):
+    if user_name is None:
+        user_name = user
+
     """
     ✅ This is Streamlit callable.
     ✅ All your original logic is executed INSIDE this function.
